@@ -52,16 +52,9 @@ export default function UserRoutes(app) {
 
    };
 
-   const profile = (req, res) => {
-    const currentUser = req.session["currentUser"];
-    if (!currentUser) {
-      res.sendStatus(401);
-      return;
-    }
-    res.json(currentUser);
-  };
+   const profile = (req, res) =>
+    res.send(req.session['profile']);
 
-  
 
   const signout = (req, res) => {
     req.session.destroy();
